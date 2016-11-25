@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		Vector3 movement = Input.GetAxis("Vertical")* cameraTransform.forward + Input.GetAxis("Horizontal") * cameraTransform.right;
+		Vector3 movement = Input.GetAxis("Vertical") * cameraTransform.forward + Input.GetAxis("Horizontal") * cameraTransform.right;
 		movement.y = 0f;
 
 		rb.AddForce(movement * speed);

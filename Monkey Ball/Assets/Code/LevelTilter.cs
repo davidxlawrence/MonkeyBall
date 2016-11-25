@@ -4,6 +4,9 @@ using System.Collections;
 public class LevelTilter : MonoBehaviour {
 
 	[SerializeField]
+	private Transform cameraTransform;
+
+	[SerializeField]
 	private float speed;
 
 	[SerializeField]
@@ -22,11 +25,14 @@ public class LevelTilter : MonoBehaviour {
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 
+		Vector3 movement = -Input.GetAxis("Horizontal") * cameraTransform.forward + Input.GetAxis("Vertical") * cameraTransform.right;
+		movement.y = 0f;
+
 		if (moveHorizontal == 0 && moveVertical == 0) {
 			transform.localRotation = Quaternion.Lerp(transform.localRotation, _originalRotation, Time.deltaTime * rotationResetSpeed);
 			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
 		} else {
-			transform.Rotate (moveVertical * speed * Time.deltaTime, 0, moveHorizontal * speed * Time.deltaTime);
+			transform.Rotate(movement * speed * Time.deltaTime);
 
 			float x = transform.localEulerAngles.x;
 			float z = transform.localEulerAngles.z;
