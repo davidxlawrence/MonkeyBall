@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
 	private float speed;
+
+	[SerializeField]
+	private Transform cameraTransform;
 	
 	private Rigidbody rb;
 	
@@ -13,12 +16,13 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		Vector3 movement = Input.GetAxis("Vertical")* cameraTransform.forward + Input.GetAxis("Horizontal") * cameraTransform.right;
+		movement.y = 0f;
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		Vector3 relativeMovement = Camera.main.transform.TransformDirection(movement);
-		relativeMovement = new Vector3 (relativeMovement.x, 0, relativeMovement.z);
-		rb.AddForce (relativeMovement * speed);
+		//Vector3 relativeMovement = cameraTransform.TransformDirection(movement);
+		//relativeMovement = new Vector3(relativeMovement.x, 0, relativeMovement.z);
+		rb.AddForce(movement * speed);
+
+		Debug.DrawRay (transform.position, rb.velocity, Color.red);
 	}
 }

@@ -6,18 +6,24 @@ public class CameraController : MonoBehaviour {
 	[SerializeField]
 	private GameObject player;
 
-	private Vector3 _offset;
+	[SerializeField]
+	private float distanceFromPlayer;
 
-	public void Start()
-	{
+	[SerializeField]
+	private float rotationSpeed;
+
+	private Vector3 _offset;
+	private Rigidbody playerRigidBody;
+
+	void Start() {
 		_offset = transform.position - player.transform.position;
+		playerRigidBody = player.GetComponent<Rigidbody>();
 	}
 	
-	public void Update()
-	{
-		transform.position = player.transform.position + _offset;
-		transform.LookAt (player.transform);
-	}
+//	void FixedUpdate() {
+//		transform.position = player.transform.position + _offset;
+//		transform.LookAt(player.transform);
+//	}
 
 //	const float distance = 10f;
 //
