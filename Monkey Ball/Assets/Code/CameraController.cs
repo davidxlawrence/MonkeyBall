@@ -12,13 +12,13 @@ public class CameraController : MonoBehaviour {
 	[SerializeField]
 	private float rotationSpeed;
 
-	private Vector3 _offset;
-	private Rigidbody playerRigidBody;
-
-	void Start() {
-		_offset = transform.position - player.transform.position;
-		playerRigidBody = player.GetComponent<Rigidbody>();
-	}
+//	private Vector3 _offset;
+//	private Rigidbody playerRigidBody;
+//
+//	void Start() {
+//		_offset = transform.position - player.transform.position;
+//		playerRigidBody = player.GetComponent<Rigidbody>();
+//	}
 	
 //	void FixedUpdate() {
 //		transform.position = player.transform.position + _offset;

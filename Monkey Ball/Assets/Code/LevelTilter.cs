@@ -9,10 +9,13 @@ public class LevelTilter : MonoBehaviour {
 	[SerializeField]
 	private float maxRotationAngle;
 
+	[SerializeField]
+	private float rotationResetSpeed;
+
+	private Quaternion _originalRotation;
+
 	void Start() {
-		foreach(Transform t in transform) {
-			t.gameObject.tag = transform.tag;
-		}
+		_originalRotation = transform.localRotation;
 	}
 
 	void FixedUpdate() {
@@ -20,9 +23,10 @@ public class LevelTilter : MonoBehaviour {
 		float moveVertical = Input.GetAxis("Vertical");
 
 		if (moveHorizontal == 0 && moveVertical == 0) {
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.deltaTime * speed * 0.1f);
+			transform.localRotation = Quaternion.Lerp(transform.localRotation, _originalRotation, Time.deltaTime * rotationResetSpeed);
+			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
 		} else {
-			transform.Rotate (moveHorizontal * speed * Time.deltaTime, 0, moveVertical * speed * Time.deltaTime);
+			transform.Rotate (moveVertical * speed * Time.deltaTime, 0, moveHorizontal * speed * Time.deltaTime);
 
 			float x = transform.localEulerAngles.x;
 			float z = transform.localEulerAngles.z;
