@@ -48,6 +48,7 @@
      <Compile Include="Assets\Code\CameraController.cs" />
      <Compile Include="Assets\Code\LevelTilter.cs" />
      <Compile Include="Assets\Code\PlayerController.cs" />
+     <Compile Include="Assets\Code\PlayerFallOutDetector.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
