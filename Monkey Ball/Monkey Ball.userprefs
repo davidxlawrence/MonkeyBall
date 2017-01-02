@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\CameraController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="C:\Users\David Lawrence\AppData\Local\Temp\Rar$DIa0.239\GameTargets.cs">
     <Files>
-      <File FileName="Assets\Code\PlayerController.cs" Line="21" Column="78" />
-      <File FileName="Assets\Code\CameraController.cs" Line="26" Column="18" />
+      <File FileName="C:\Users\David Lawrence\AppData\Local\Temp\Rar$DIa0.239\GameTargets.cs" Line="44" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
